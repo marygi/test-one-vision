@@ -1,0 +1,44 @@
+.grid-container
+	display: grid
+	grid-template-columns: repeat($column-count ,1fr)
+	height: 100%
+	margin: 0 auto
+	width: 100%
+
+	&--height-half
+		height: $height-half
+		
+	&--custom-column-width
+		grid-template-columns: $custom-width-150 auto $custom-width-150
+
+		@include md-max
+			grid-template-columns: auto
+
+.grid-column
+	@extend %column-common-style
+
+	grid-column: span $column-count
+
+	@include sm-min
+		@for $i from 1 through $column-count
+			&--sm#{$i}
+				grid-column: span $i
+				
+	@include md-min
+		@for $i from 1 through $column-count
+			&--md#{$i}
+				grid-column: span $i
+				
+	@include lg-min
+		@for $i from 1 through $column-count
+			&--lg#{$i}
+				grid-column: span $i
+
+	&--tablet-grow
+
+		@include lg-max
+			grid-column: span 2
+
+		@include md-max
+			grid-column: auto
+

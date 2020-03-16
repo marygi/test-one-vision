@@ -8,10 +8,21 @@ body
 		
 	@include sm-max
 		font-size: 14px
-		
-.column
+
+
+%column-common-style
 	background: rgba($color-gray,0.5)
 	background-clip: content-box
+	height: 100%
+	padding: $column-gap
+
+	@include md-max
+		height: auto
+		min-height: 50px
+		width: 100%
+		
+.column
+	@extend %column-common-style
 	
 .media-tablet-hide
 	@include md-min

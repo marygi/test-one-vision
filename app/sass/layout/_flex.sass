@@ -9,17 +9,23 @@
 		height: $height-half
 
 .flex-column
-	height: 100%
+	@extend %column-common-style
+
 	flex-grow: 1
-	padding: $column-gap
 	
 	&
 		.flex-column
 			height: 50%
+
+			@include md-max
+				height: auto
 	
 	&--w150
 		flex-grow: initial
 		width: $custom-width-150
+
+		@include md-max
+			width: 100%
 	
 	@include sm-min
 		@for $i from 1 through $column-count
@@ -35,9 +41,4 @@
 		@for $i from 1 through $column-count
 			&--lg#{$i}
 				width: $i*$column-width-unit
-			
-	@include md-max
-		height: auto !important
-		min-height: 50px
-		width: 100%
 		
