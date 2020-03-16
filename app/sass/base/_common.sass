@@ -1,0 +1,23 @@
+body
+	color: $color-text-black
+	font-family: Arial, sans-serif
+	font-size: 16px
+	
+	@include md-max
+		font-size: 15px
+		
+	@include sm-max
+		font-size: 14px
+		
+.column
+	background: rgba($color-gray,0.5)
+	background-clip: content-box
+	
+.media-tablet-hide
+	@include md-min
+		display: none
+		
+	@include lg-min
+		display: block
+		
+

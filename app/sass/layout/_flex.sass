@@ -1,0 +1,43 @@
+.flex-container
+	display: flex
+	flex-wrap: wrap
+	height: 100%
+	margin: 0 auto
+	width: 100%
+	
+	&--height-half
+		height: $height-half
+
+.flex-column
+	height: 100%
+	flex-grow: 1
+	padding: $column-gap
+	
+	&
+		.flex-column
+			height: 50%
+	
+	&--w150
+		flex-grow: initial
+		width: $custom-width-150
+	
+	@include sm-min
+		@for $i from 1 through $column-count
+			&--sm#{$i}
+				width: $i*$column-width-unit
+	
+	@include md-min
+		@for $i from 1 through $column-count
+			&--md#{$i}
+				width: $i*$column-width-unit
+	
+	@include lg-min
+		@for $i from 1 through $column-count
+			&--lg#{$i}
+				width: $i*$column-width-unit
+			
+	@include md-max
+		height: auto !important
+		min-height: 50px
+		width: 100%
+		

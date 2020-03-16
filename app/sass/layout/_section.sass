@@ -1,0 +1,19 @@
+.section
+	height: 100vh
+	padding: $column-gap*3 $column-gap $column-gap
+	position: relative
+	width: 100%
+	
+	&:before
+		content: attr(data-title)
+		position: absolute
+		font-size: 20px
+		left: 0
+		padding-top: $column-gap
+		text-align: center
+		text-transform: uppercase
+		top: 0
+		width: 100%
+		
+	@include md-max
+		height: auto
